@@ -1,0 +1,418 @@
+<krpano>
+  <style name="hs_flycam" url="skin/hs_flycam1.png"
+    scale="0.2"
+    edge="top" 
+    distorted="true"
+    tooltip=""
+    linkedscene=""
+    linkedscene_lookat=""
+    ondown="draghotspot();" 
+    onclick="skin_hotspotstyle_click();activeScene_menu();activeScene()"
+    onover="tween(scale,0.25);"
+    onout="tween(scale,0.2);"
+    onloaded="wobble(scale,0.2,0.25,0.7);"
+    onhover="get_scene_data"
+  />
+
+  <style name="skin_hotspotstyle_move" url="skin/hs_dichuyen1.png" edge="top" distorted="true"
+	  tooltip=""
+	  linkedscene=""
+	  linkedscene_lookat=""
+	  onclick="skin_hotspotstyle_click();activeScene_menu();activeScene()"
+	  depth="1000"
+	  scale="0.2"
+	  onover="tween(scale,0.3);"
+    ondown="draghotspot();" 
+	  onout="tween(scale,0.2);"
+    onloaded="wobble(scale,0.2,0.3,0.3);"
+	  framewidth="64" frameheight="64" frame="0" lastframe="22"
+    onhover="get_scene_data" 
+	/>
+   
+  <style name="skin_hotspotstyle" url="skin/hotspot_ani_black_64x64x20.png" edge="top" distorted="true"
+	  tooltip=""
+	  linkedscene=""
+	  linkedscene_lookat=""
+	  onclick="skin_hotspotstyle_click();activeScene_menu();activeScene()"
+	  depth="1000"
+	  scale="1"
+	  onover="tween(scale,1.15);"
+    ondown="draghotspot();" 
+	  onout="tween(scale,1);"
+	  onloaded="hotspot_animate3();"
+		crop="0|0|64|64"
+	  framewidth="64" frameheight="64" frame="0" lastframe="22"
+    onhover="get_scene_data"  
+	/>
+
+  <style name="hs_image_text" url="skin/hs_text2.png" scale="0.8" edge="bottom" distorted="false"
+	  tooltip=""
+	  linkedscene=""
+	  linkedscene_lookat=""
+    ondown="draghotspot();" 
+	  onclick="skin_hotspotstyle_click();activeScene();"
+	  onover="tween(scale,0.85);"
+	  onout="tween(scale,0.8);"
+	  onloaded="if(linkedscene AND skin_settings.tooltips_hotspots, copy(tooltip,scene[get(linkedscene)].title); loadstyle(skin_tooltips); );"  
+	/>
+
+  <style
+    name="skin_hotspotstyle_info"
+    url="skin/icon_info1.png"
+    edge="top"
+    distorted="false"
+    tooltip=""
+    linkedscene=""
+    linkedscene_lookat=""
+    onclick="skin_hotspotstyle_click();"
+    depth="1000"
+    scale="1"
+    rotation="90"
+    ondown="draghotspot();" 
+    onover="tween(scale,1.1);"
+    onout="tween(scale,1);"
+    onloaded="skin_hotspotstyle_setup();"
+  />
+  <style
+    name="show_hide_polygo"
+    fillalpha="0"
+    borderalpha="0"
+    onover="tween(fillalpha,0.6);
+    tween(borderalpha,0.6)"
+    onout="tween(fillalpha,0);
+    tween(borderalpha,0)"
+  />
+
+
+  <!-- <style name="hotspot_ide" url="gui_menu/hs1.png" scale="0.8" edge="top" distorted="true" 
+      tooltip="" 
+      linkedscene="" 
+      linkedscene_lookat="" 
+      onclick="skin_hotspotstyle_click();" 
+      onover="tween(scale,0.85);" 
+      onout="tween(scale,0.8);" 
+      onloaded="if(linkedscene AND skin_settings.tooltips_hotspots, copy(tooltip,scene[get(linkedscene)].title); loadstyle(skin_tooltips); );"
+    />
+     
+    <style name="hotspot_sprite_mascotte"
+	   	url="skin/hotspot_ani_white_64x64x20.png"
+	   	crop="0|0|64|64"
+	   	framewidth="64" frameheight="64" frame="0" lastframe="22"
+      tooltip=""
+	    linkedscene=""
+	    linkedscene_lookat=""
+	    onclick="skin_hotspotstyle_click();"
+	    onover="tween(scale,4);"
+	    onout="tween(scale,4);"
+	    onloaded="tween(scale,3);hotspot_animate3();
+      if(linkedscene AND skin_settings.tooltips_hotspots, copy(tooltip,scene[get(linkedscene)].title); loadstyle(skin_tooltips); );"
+	  /> 
+    
+		<style name="hotspot_sprite_mascotte2"
+	   	url="skin/hotspot_ani_black.png"
+	   	crop="0|0|64|64"
+	   	framewidth="64" frameheight="64" frame="0" lastframe="22"
+      tooltip=""
+	    linkedscene=""
+	    linkedscene_lookat=""
+	    onclick="skin_hotspotstyle_click();"
+	    onover="tween(scale,2);"
+	    onout="tween(scale,2);"
+	    onloaded="hotspot_animate3();
+      if(linkedscene AND skin_settings.tooltips_hotspots, copy(tooltip,scene[get(linkedscene)].title); loadstyle(skin_tooltips); );"
+	  /> 
+
+    <style name="skin_hotspotstyle_ani" url="skin/hotspot_ani_black.png" edge="top" distorted="true"
+	    tooltip=""
+	    linkedscene=""
+	    linkedscene_lookat=""
+	    onclick="skin_hotspotstyle_click();activeScene();"
+	    depth="1000"
+	    scale="1"
+	    onover="tween(scale,1.15);"
+	    onout="tween(scale,1);"
+	    onloaded="hotspot_animate3();"
+		  crop="0|0|64|64"
+	   	framewidth="64" frameheight="64" frame="0" lastframe="22"
+		  onhover="get_scene_data"
+	  />
+
+	  <style name="hotspotstyle_circle" url="skin/hs1.png" scale="0.8" edge="top" distorted="true"
+	    tooltip=""
+	    linkedscene=""
+	    linkedscene_lookat=""
+	    onclick="skin_hotspotstyle_click();"
+	    onover="tween(scale,0.85);"
+	    onout="tween(scale,0.8);"
+	    onloaded="if(linkedscene AND skin_settings.tooltips_hotspots, copy(tooltip,scene[get(linkedscene)].title); loadstyle(skin_tooltips); );"
+	  /> 
+   
+    <style name="hotspot_play_video"  url="skin/play-video.png"  enabled="true" scale="0.8" edge="bottom"  zoom="true"
+	    onclick="skin_hotspotstyle_click();"
+	    onover="tween(scale,0.85);"
+      onhover="showHotSpot(scene[get(linkedscene)].thumburl,scene[get(linkedscene)].title);"
+	    onout="tween(scale,0.8);"
+	    onloaded="if(linkedscene AND skin_settings.tooltips_hotspots, copy(tooltip,scene[get(linkedscene)].title); loadstyle(skin_tooltips); );"
+	  />
+	  <style name="hotspot_standee" url="assets/images/standee/1.png" scale="0.05" edge="center" distorted="true"
+	    tooltip=""
+	    linkedscene=""
+	    linkedscene_lookat=""
+	    onclick="skin_hotspotstyle_click();"
+	    onover="tween(scale,0.055);"
+	    onout="tween(scale,0.05);"
+	    onloaded="if(linkedscene AND skin_settings.tooltips_hotspots, copy(tooltip,scene[get(linkedscene)].title); loadstyle(skin_tooltips); );"
+	  />
+
+    <style
+      name="skin_hotspotstyle_facebook"
+      url="skin/facebook.png"
+      edge="top"
+      distorted="true"
+      tooltip=""
+      linkedscene=""
+      linkedscene_lookat=""
+      onclick="skin_hotspotstyle_click();"
+      depth="1000"
+      scale="0.14"
+      onover="tween(scale,0.14);"
+      onout="tween(scale,0.14);"
+      onloaded="skin_hotspotstyle_setup();"
+      onhover="get_scene_data"
+	  />
+    <style
+      name="skin_hotspotstyle_website"
+      url="skin/web.png"
+      edge="top"
+      distorted="true"
+      tooltip=""
+      linkedscene=""
+      linkedscene_lookat=""
+      onclick="skin_hotspotstyle_click();"
+      depth="1000"
+      scale="0.3"
+      onover="tween(scale,0.3);"
+      onout="tween(scale,0.3);"
+      onloaded="skin_hotspotstyle_setup();"
+      onhover="get_scene_data"
+	  />
+    <style
+      name="skin_hotspotstyle_document"
+      url="skin/catalog.png"
+      edge="top"
+      distorted="true"
+      tooltip=""
+      linkedscene=""
+      linkedscene_lookat=""
+      onclick="skin_hotspotstyle_click();"
+      depth="1000"
+      scale="0.14"
+      onover="tween(scale,0.14);"
+      onout="tween(scale,0.14);"
+      onloaded="skin_hotspotstyle_setup();"
+      onhover="get_scene_data"
+	  />
+    <style
+      name="skin_hotspotstyle_metting"
+      url="skin/handshake.png"
+      edge="top"
+      distorted="true"
+      tooltip=""
+      linkedscene=""
+      linkedscene_lookat=""
+      onclick="skin_hotspotstyle_click();"
+      depth="1000"
+      scale="0.3"
+      onover="tween(scale,0.3);"
+      onout="tween(scale,0.3);"
+      onloaded="skin_hotspotstyle_setup();"
+      onhover="get_scene_data"
+	  />
+    <style
+      name="skin_hotspotstyle_chat"
+      url="skin/chat.png"
+      edge="top"
+      distorted="true"
+      tooltip=""
+      linkedscene=""
+      linkedscene_lookat=""
+      onclick="skin_hotspotstyle_click();"
+      depth="1000"
+      scale="0.14"
+      onover="tween(scale,0.14);"
+      onout="tween(scale,0.14);"
+      onloaded="skin_hotspotstyle_setup();"
+      onhover="get_scene_data"
+	  />
+    <style
+      name="skin_hotspotstyle_email"
+      url="skin/mail.png"
+      edge="top"
+      distorted="true"
+      tooltip=""
+      linkedscene=""
+      linkedscene_lookat=""
+      onclick="skin_hotspotstyle_click();"
+      depth="1000"
+      scale="0.3"
+      onover="tween(scale,0.3);"
+      onout="tween(scale,0.3);"
+      onloaded="skin_hotspotstyle_setup();"
+      onhover="get_scene_data"
+	  />
+    <style
+      name="skin_hotspotstyle_video"
+      url="skin/video.png"
+      edge="top"
+      distorted="true"
+      tooltip=""
+      linkedscene=""
+      linkedscene_lookat=""
+      onclick="skin_hotspotstyle_click();"
+      depth="1000"
+      scale="0.3"
+      onover="tween(scale,0.35);"
+      onout="tween(scale,0.3);"
+      onloaded="skin_hotspotstyle_setup();"
+      onhover="get_scene_data"
+	  />
+    <style
+      name="skin_hotspotstyle_product"
+      url="skin/info.png"
+      edge="top"
+      distorted="true"
+      tooltip=""
+      linkedscene=""
+      linkedscene_lookat=""
+      onclick="skin_hotspotstyle_click();"
+      depth="1000"
+      scale="0.14"
+      onover="tween(scale,0.14);"
+      onout="tween(scale,0.14);"
+      onloaded="skin_hotspotstyle_setup();"
+      onhover="get_scene_data"
+	  />
+
+    <style
+      name="hotspot_move"
+      url="skin/dichuyen.png"
+      edge="top"
+      distorted="true"
+      tooltip=""
+      linkedscene=""
+      linkedscene_lookat=""
+      onclick="skin_hotspotstyle_click();"
+      depth="1000"
+      scale="0.64"
+      onover="tween(scale,0.64);"
+      onout="tween(scale,0.64);"
+      onloaded="skin_hotspotstyle_setup();"
+      onhover="get_scene_data"
+	  />  
+    <style
+      name="hotspot_skin"
+      url="skin/vtourskin_hotspot.png"
+      edge="top"
+      distorted="true"
+      tooltip=""
+      linkedscene=""
+      linkedscene_lookat=""
+      onclick="skin_hotspotstyle_click();"
+      depth="1000"
+      scale="0.34"
+      onover="tween(scale,0.34);"
+      onout="tween(scale,0.34);"
+      onloaded="skin_hotspotstyle_setup();"
+      onhover="get_scene_data"
+	  />  -->
+    
+    
+   
+   
+  <action name="hotspot_animate3">
+		inc(frame,1,get(lastframe),0);
+		mul(ypos,frame,frameheight);
+		txtadd(crop,'0|',get(ypos),'|',get(framewidth),'|',get(frameheight));
+		delayedcall(0.09, if(loaded, hotspot_animate3() ) );
+	</action> 
+  <action name="wobble" scope="local" args="attribute, min, max, time">
+	  set(local.vverh, false);
+	  calc(cal,'caller.' + attribute);
+	  setinterval(calc('merc_' + caller.name), get(time), 
+		if(vverh,tween(get(cal),get(max),get(time)); set(vverh,false);
+				,
+				tween(get(cal),get(min),get(time)); set(vverh,true);
+			);
+		);
+  </action>
+
+  <action name="active_title_scene" type="Javascript">
+    <![CDATA[
+
+    ]]>
+  </action>
+
+  <action name="activeScene_menu" >
+    activeScene_html_menu(get(linkedscene));
+  </action>
+
+  <action name="activeScene_html_menu" type="Javascript">
+    <![CDATA[
+     var elems = document.querySelectorAll(".active_menu");
+      [].forEach.call(elems, function(el) {
+        el.classList.remove("active_menu");
+       
+      
+      });
+     
+    
+    let target_active_menu = "#" + args[1]
+    
+    var elems_active_menu = document.querySelectorAll(target_active_menu);
+      [].forEach.call(elems_active_menu, function(el) {
+        
+          el.classList.add("active_menu");
+        
+        
+        
+      });
+      
+
+    ]]>
+  </action>
+  <action name="activeScene" >
+    activeScene_html(get(linkedscene));
+  </action>
+
+  <action name="activeScene_html" type="Javascript">
+    <![CDATA[
+     console.log(args[1]);
+     var elems1 = document.querySelectorAll(".active");
+      [].forEach.call(elems1, function(el) {
+        el.classList.remove("active");
+      
+      });
+    
+ 
+   
+    let target_active = "#" + args[1]
+      
+      var elems_active = document.querySelectorAll(target_active);
+        [].forEach.call(elems_active, function(el) {
+          el.classList.add("active");
+        
+        
+        });
+      console.log(elem1);
+      elem1.classList.add("active");
+    
+      
+
+    ]]>
+  </action>
+  
+    <!--  load the soundinterface plugin  -->
+    <plugin name="soundinterface" url.flash="%SWFPATH%/plugins/soundinterface.swf" url.html5="%SWFPATH%/plugins/soundinterface.js" rootpath="" preload="true" keep="true"    volume="0.3"/>
+ <!--  start playing the sound  -->
+    <events name="currentpano" onnewpano="playsound(bgsnd, 'http://krpano.com/panos/xmas/ding_dong_merrily_on_high.mp3, 0);" onremovepano="stopsound(bgsnd);"/>
+</krpano>
